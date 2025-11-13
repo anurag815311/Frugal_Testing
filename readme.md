@@ -120,7 +120,7 @@ pip install selenium webdriver-manager
 python selenium_test.py
 ```
 
-T
+
 
 
 
@@ -155,4 +155,4 @@ This repository demonstrates:
 
 **Anurag Singh**
 
--
+
