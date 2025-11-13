@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intelligent Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="head">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 4.5v9L12 21 3 16.5v-9L12 3z" stroke="#2563eb" stroke-width="1.6"/></svg>
+        <div>
+          <h1>Intelligent Registration</h1>
+          <div class="muted">Validations • Dependent dropdowns • Strength meter • Disabled submit until valid</div>
+        </div>
+      </div>
+
+      <form id="regForm" novalidate>
+        <div class="alert error" id="topError">❌ Please fix highlighted fields and ensure all required inputs are valid.</div>
+        <div class="alert success" id="topSuccess">✅ Registration Successful! Your profile has been submitted successfully.</div>
+
+        <div class="field"><label for="firstName">First Name *</label><input id="firstName" required /><span class="error" id="errFirst">First name is required.</span></div>
+        <div class="field"><label for="lastName">Last Name *</label><input id="lastName" required /><span class="error" id="errLast">Last name is required.</span></div>
+
+        <div class="field full">
+          <label for="email">Email *</label>
+          <input id="email" type="email" required />
+          <div class="hint">Disposable domains are blocked (e.g., @tempmail.com).</div>
+          <span class="error" id="errEmail">Enter a valid, non‑disposable email.</span>
+        </div>
+
+        <div class="field"><label for="country">Country</label>
+          <select id="country">
+            <option value="IN">India (+91)</option>
+            <option value="US">United States (+1)</option>
+            <option value="GB">United Kingdom (+44)</option>
+          </select>
+        </div>
+        <div class="field"><label for="phone">Phone Number *</label><input id="phone" placeholder="e.g., +91 9876543210" required /><span class="error" id="errPhone">Phone must start with the selected country code.</span></div>
+
+        <div class="field"><label for="age">Age</label><input id="age" type="number" min="0" /></div>
+        <div class="field">
+          <label>Gender *</label>
+          <div class="row" id="genderGroup">
+            <label class="badge"><input type="radio" name="gender" value="Male"> Male</label>
+            <label class="badge"><input type="radio" name="gender" value="Female"> Female</label>
+            <label class="badge"><input type="radio" name="gender" value="Other"> Other</label>
+          </div>
+          <span class="error" id="errGender">Please select a gender.</span>
+        </div>
+
+        <div class="field full"><label for="address">Address</label><textarea id="address" rows="3"></textarea></div>
+
+        <div class="field"><label for="state">State</label>
+          <select id="state"></select>
+        </div>
+        <div class="field"><label for="city">City</label>
+          <select id="city"></select>
+        </div>
+
+        <div class="field full"><label for="password">Password</label>
+          <input id="password" type="password" />
+          <div class="strength" aria-label="Password strength"><div id="strengthBar"></div></div>
+          <div class="strength-label" id="strengthLabel">Strength: —</div>
+          <div class="hint">Use 8+ chars with mix of upper, lower, number, symbol.</div>
+          <span class="error" id="errPassword">Password too weak or doesn’t meet policy.</span>
+        </div>
+        <div class="field full"><label for="confirm">Confirm Password</label>
+          <input id="confirm" type="password" />
+          <span class="error" id="errConfirm">Passwords do not match.</span>
+        </div>
+
+        <div class="field full">
+          <label class="row"><input id="terms" type="checkbox"/> I agree to the Terms & Conditions *</label>
+          <span class="error" id="errTerms">You must accept the Terms & Conditions.</span>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn" disabled>Submit</button>
+          <button type="button" class="ghost" id="resetBtn">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
